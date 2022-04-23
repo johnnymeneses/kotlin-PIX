@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PIX</string>
+    <string name="app_version">PIX 1.0</string>
 </resources>
