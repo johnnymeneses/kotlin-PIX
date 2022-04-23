@@ -10,6 +10,7 @@ class SecurityPreferences(context: Context) {
 
     //salvar valor
 
+
     //recuperar valor
 
 
