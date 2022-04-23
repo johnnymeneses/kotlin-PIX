@@ -20,10 +20,10 @@
         app:tint="@color/white" />
 
     <EditText
-        android:id="@+id/edit_email"
+        android:id="@+id/edit_user"
         style="@style/style_edit_text"
         android:layout_marginTop="30dp"
-        android:hint="E-mail"
+        android:hint="Usuario"
         android:inputType="textEmailAddress"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -37,10 +37,10 @@
         android:inputType="numberPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_email" />
+        app:layout_constraintTop_toBottomOf="@id/edit_user" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_entrar"
+        android:id="@+id/button_Entrar"
         style="@style/styleButton"
         android:text="Entrar"
         app:layout_constraintLeft_toLeftOf="parent"
