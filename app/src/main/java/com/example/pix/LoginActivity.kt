@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.pix.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -16,8 +17,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        //retirar barra superior
-        supportActionBar?.hide()
 
         //Intanciar
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -28,10 +27,26 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //Botão via ViewBingind
         binding.buttonEntrar.setOnClickListener(this)
 
+        //retirar barra superior
+        supportActionBar?.hide()
+
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.button_Entrar){
+        if (v.id == R.id.button_Entrar) {
+            salvaNome()
+        }
+    }
+
+
+    fun salvaNome() {
+
+        val nome = binding.editUsuario.text.toString()
+
+        //valida se está em branco
+        if (nome != "") {
+
+            SecurityPreferences(this).storeString("USER_NAME",nome)
 
             //Instanciar nova tela
             startActivity(Intent(this, PrincipalActivity::class.java))
@@ -39,6 +54,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             //Finalizar tela de login
             finish()
 
+        } else {
+            Toast.makeText(this,"Preencha o campo nome",Toast.LENGTH_SHORT).show()
         }
+
+
     }
+
+
 }

@@ -20,7 +20,7 @@
         app:tint="@color/white" />
 
     <EditText
-        android:id="@+id/edit_user"
+        android:id="@+id/edit_usuario"
         style="@style/style_edit_text"
         android:layout_marginTop="30dp"
         android:hint="Usuario"
@@ -37,7 +37,7 @@
         android:inputType="numberPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_user" />
+        app:layout_constraintTop_toBottomOf="@id/edit_usuario" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_Entrar"
