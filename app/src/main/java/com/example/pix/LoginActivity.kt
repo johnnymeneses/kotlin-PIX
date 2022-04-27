@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.pix.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : AppCompatActivity() {
 
     //Nome da Activity no binding
     private lateinit var binding: ActivityLoginBinding
@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        //setContentView(R.layout.activity_login) não é mais necessária
 
 
         //Intanciar
@@ -24,18 +24,30 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //Sendo usada
         setContentView(binding.root)
 
-        //Botão via ViewBingind
-        binding.buttonEntrar.setOnClickListener(this)
 
         //retirar barra superior
         supportActionBar?.hide()
 
     }
 
-    override fun onClick(v: View) {
-        if (v.id == R.id.button_Entrar) {
-            salvaNome()
-        }
+    override fun onStart() {
+        super.onStart()
+
+        //Botão via ViewBingind
+        binding.buttonEntrar.setOnClickListener { salvaNome() }
+        binding.txtCadastro.setOnClickListener { cadastroUsuario() }
+
+    }
+
+
+//    override fun onClick(v: View) {
+//        if (v.id == R.id.button_Entrar) {
+//            salvaNome()
+//        }
+//    }
+
+    fun cadastroUsuario() {
+        Toast.makeText(this, "Realizando Cadastro", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -46,7 +58,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //valida se está em branco
         if (nome != "") {
 
-            SecurityPreferences(this).storeString("USER_NAME",nome)
+            SecurityPreferences(this).storeString("USER_NAME", nome)
 
             //Instanciar nova tela
             startActivity(Intent(this, PrincipalActivity::class.java))
@@ -55,7 +67,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             finish()
 
         } else {
-            Toast.makeText(this,"Preencha o campo nome",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Preencha o campo nome", Toast.LENGTH_SHORT).show()
         }
 
 
